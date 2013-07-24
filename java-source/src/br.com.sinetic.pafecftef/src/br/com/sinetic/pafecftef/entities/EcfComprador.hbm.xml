@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.EcfComprador" table="ecf_comprador"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="cpfCnpj" type="string">
+            <column name="cpf_cnpj" length="29" not-null="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="30" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="80" />
+        </property>
+        <set name="vendases" inverse="true">
+            <key>
+                <column name="id_ecf_comprador" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.Vendas" />
+        </set>
+    </class>
+</hibernate-mapping>

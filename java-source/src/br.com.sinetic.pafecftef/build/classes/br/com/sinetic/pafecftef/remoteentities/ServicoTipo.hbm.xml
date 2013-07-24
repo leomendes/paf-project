@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.ServicoTipo" table="servico_tipo"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">servico_tipo_codigo_seq</param>
+            </generator>
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="25" not-null="true" unique="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="50" not-null="true" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <set name="servicos" inverse="true">
+            <key>
+                <column name="codigo_servico_tipo" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Servico" />
+        </set>
+    </class>
+</hibernate-mapping>

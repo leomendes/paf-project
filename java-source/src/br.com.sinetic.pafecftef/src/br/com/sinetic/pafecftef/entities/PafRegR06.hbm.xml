@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-Mar-2013 10:11:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR06" table="paf_reg_r06"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numeroFabricacao" type="string">
+            <column name="numero_fabricacao" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="int">
+            <column name="numero_usuario" not-null="true" />
+        </property>
+        <property name="coo" type="int">
+            <column name="coo" not-null="true" />
+        </property>
+        <property name="gnf" type="int">
+            <column name="gnf" not-null="true" />
+        </property>
+        <property name="grg" type="int">
+            <column name="grg" not-null="true" />
+        </property>
+        <property name="cdc" type="int">
+            <column name="cdc" not-null="true" />
+        </property>
+        <property name="denominacao" type="string">
+            <column name="denominacao" length="2" not-null="true" />
+        </property>
+        <property name="dataHora" type="timestamp">
+            <column name="data_hora" length="29" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

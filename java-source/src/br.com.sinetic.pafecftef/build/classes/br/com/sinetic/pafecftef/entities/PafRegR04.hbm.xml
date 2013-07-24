@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:53:03 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR04" table="paf_reg_r04"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numeroFabEcf" type="string">
+            <column name="numero_fab_ecf" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="string">
+            <column name="numero_usuario" length="2" not-null="true" />
+        </property>
+        <property name="ccfCvcCbp" type="int">
+            <column name="ccf_cvc_cbp" not-null="true" />
+        </property>
+        <property name="coo" type="int">
+            <column name="coo" not-null="true" />
+        </property>
+        <property name="dataInicio" type="timestamp">
+            <column name="data_inicio" length="29" not-null="true" />
+        </property>
+        <property name="subtotal" type="double">
+            <column name="subtotal" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="descontoSubtotal" type="double">
+            <column name="desconto_subtotal" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="tipoDescontoSubtotal" type="char">
+            <column name="tipo_desconto_subtotal" length="1" not-null="true" />
+        </property>
+        <property name="acrescimoSubtotal" type="double">
+            <column name="acrescimo_subtotal" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="tipoAcrescimoSubtotal" type="char">
+            <column name="tipo_acrescimo_subtotal" length="1" not-null="true" />
+        </property>
+        <property name="totalLiquido" type="double">
+            <column name="total_liquido" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="indicadorCancelamento" type="boolean">
+            <column name="indicador_cancelamento" not-null="true" />
+        </property>
+        <property name="cancelamentoAcrescimoSubtotal" type="double">
+            <column name="cancelamento_acrescimo_subtotal" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="ordemAplicacaoDescAcresc" type="char">
+            <column name="ordem_aplicacao_desc_acresc" length="1" not-null="true" />
+        </property>
+        <property name="nomeCliente" type="string">
+            <column name="nome_cliente" length="40" not-null="true" />
+        </property>
+        <property name="cpfCnpj" type="string">
+            <column name="cpf_cnpj" length="14" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

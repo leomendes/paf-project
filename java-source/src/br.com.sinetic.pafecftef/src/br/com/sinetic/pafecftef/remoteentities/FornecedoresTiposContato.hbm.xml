@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.FornecedoresTiposContato" table="fornecedores_tipos_contato"  >
+        <id name="codigo" type="short">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoContato" type="string">
+            <column name="tipo_contato" length="30" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="crediarioClientesForContato3" inverse="true">
+            <key>
+                <column name="contato_3" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="crediarioClientesForContato2" inverse="true">
+            <key>
+                <column name="contato_2" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="crediarioClientesForContato1" inverse="true">
+            <key>
+                <column name="contato_1" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+    </class>
+</hibernate-mapping>

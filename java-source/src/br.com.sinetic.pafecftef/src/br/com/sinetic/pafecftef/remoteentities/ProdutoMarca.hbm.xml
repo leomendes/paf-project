@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.ProdutoMarca" table="produto_marca"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">produto_marca_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="usuarioByCriadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="criado_por" />
+        </many-to-one>
+        <many-to-one name="fornecedores" class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" fetch="select">
+            <column name="fornecedor" />
+        </many-to-one>
+        <many-to-one name="usuarioByAlteradoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="alterado_por" />
+        </many-to-one>
+        <property name="nomeInterno" type="string">
+            <column name="nome_interno" length="50" />
+        </property>
+        <property name="nomeExibicao" type="string">
+            <column name="nome_exibicao" length="50" />
+        </property>
+        <property name="margem" type="big_decimal">
+            <column name="margem" precision="5" scale="4" />
+        </property>
+        <property name="markUpSugerido" type="big_decimal">
+            <column name="mark_up_sugerido" precision="5" />
+        </property>
+        <property name="descontoNegociado" type="big_decimal">
+            <column name="desconto_negociado" precision="5" />
+        </property>
+        <property name="criadoEm" type="timestamp">
+            <column name="criado_em" length="29" />
+        </property>
+        <property name="alteradoEm" type="timestamp">
+            <column name="alterado_em" length="29" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="produtoses" inverse="true">
+            <key>
+                <column name="cod_marca" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+    </class>
+</hibernate-mapping>

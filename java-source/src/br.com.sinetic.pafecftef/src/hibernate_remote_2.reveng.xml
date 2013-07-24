@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="gouveia-dev"/>
+  <table-filter match-name="crediario_tipos_status_prestacao"/>
+  <table-filter match-name="crediario_setores_atividade"/>
+  <table-filter match-name="crediario_ramos_atividade"/>
+  <table-filter match-name="crediario_forma_pagamento_detalhado"/>
+  <table-filter match-name="crediario_venda_parcelamento"/>
+  <table-filter match-name="regiao"/>
+  <table-filter match-name="fornecedores_tipos_contato"/>
+  <table-filter match-name="crediario_funcoes"/>
+  <table-filter match-name="crediario_cliente"/>
+  <table-filter match-name="crediario_forma_pagamento_operadora"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="crediario_observacoes"/>
+  <table-filter match-name="grupo_usuario"/>
+  <table-filter match-name="paf_ecf_desconto_tipo"/>
+  <table-filter match-name="loja"/>
+  <table-filter match-name="pre_venda"/>
+  <table-filter match-name="crediario_forma_pagamento_bandeira"/>
+  <table-filter match-name="crediario_forma_pagamento"/>
+</hibernate-reverse-engineering>

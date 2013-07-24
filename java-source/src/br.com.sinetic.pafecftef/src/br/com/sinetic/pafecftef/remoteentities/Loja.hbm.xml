@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.Loja" table="loja"  >
+        <id name="numero" type="short">
+            <column name="numero" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="regiao" class="br.com.sinetic.pafecftef.remoteentities.Regiao" fetch="select">
+            <column name="regiao" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="30" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="20" />
+        </property>
+        <property name="endRua" type="string">
+            <column name="end_rua" length="40" />
+        </property>
+        <property name="endNumero" type="java.lang.Short">
+            <column name="end_numero" />
+        </property>
+        <property name="endComplemento" type="string">
+            <column name="end_complemento" length="20" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="4" />
+        </property>
+        <property name="web" type="string">
+            <column name="web" length="115" />
+        </property>
+        <property name="cep" type="string">
+            <column name="cep" length="9" />
+        </property>
+        <property name="cnpj" type="string">
+            <column name="cnpj" length="18" />
+        </property>
+        <property name="ie" type="string">
+            <column name="ie" length="13" />
+        </property>
+        <property name="endEstado" type="string">
+            <column name="end_estado" length="2" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="13" />
+        </property>
+        <property name="jurosDia" type="java.lang.Float">
+            <column name="juros_dia" precision="8" scale="8" />
+        </property>
+        <property name="descontoDia" type="java.lang.Float">
+            <column name="desconto_dia" precision="8" scale="8" />
+        </property>
+        <property name="peoPdv" type="big_decimal">
+            <column name="peo_pdv" precision="8" />
+        </property>
+        <property name="descontoRelativoPdv" type="java.lang.Float">
+            <column name="desconto_relativo_pdv" precision="8" scale="8" />
+        </property>
+        <property name="descontoAbsolutoPdv" type="big_decimal">
+            <column name="desconto_absoluto_pdv" precision="8" />
+        </property>
+        <set name="lojaFormaPagamentos" inverse="true">
+            <key>
+                <column name="cod_loja" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.LojaFormaPagamento" />
+        </set>
+        <set name="usuarios" inverse="true">
+            <key>
+                <column name="loja" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Usuario" />
+        </set>
+        <set name="crediarioClientes" inverse="true">
+            <key>
+                <column name="loja_cadastro" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="preVendas" inverse="true">
+            <key>
+                <column name="codigo_loja" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

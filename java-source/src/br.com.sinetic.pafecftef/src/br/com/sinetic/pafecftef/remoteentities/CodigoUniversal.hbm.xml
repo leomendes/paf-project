@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.CodigoUniversal" table="codigo_universal"  >
+        <id name="codigo" type="long">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="codigoTipos" class="br.com.sinetic.pafecftef.remoteentities.CodigoTipos" fetch="select">
+            <column name="tipo" />
+        </many-to-one>
+        <set name="produtoses" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.PafEcfArredondamento" table="paf_ecf_arredondamento"  >
+        <id name="sigla" type="char">
+            <column name="sigla" length="1" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="25" not-null="true" />
+        </property>
+        <set name="servicos" inverse="true">
+            <key>
+                <column name="arredondamento" length="1" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Servico" />
+        </set>
+        <set name="sineticControleEstoques" inverse="true">
+            <key>
+                <column name="arredondamento" length="1" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.SineticControleEstoque" />
+        </set>
+    </class>
+</hibernate-mapping>

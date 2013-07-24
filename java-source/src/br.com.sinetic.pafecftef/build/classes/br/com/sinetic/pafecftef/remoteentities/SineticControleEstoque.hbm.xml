@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.SineticControleEstoque" table="sinetic_controle_estoque"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">sinetic_controle_estoque_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="pafEcfProducao" class="br.com.sinetic.pafecftef.remoteentities.PafEcfProducao" fetch="select">
+            <column name="producao" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pafEcfSituacaoTributaria" class="br.com.sinetic.pafecftef.remoteentities.PafEcfSituacaoTributaria" fetch="select">
+            <column name="situacao_tributaria" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pafEcfArredondamento" class="br.com.sinetic.pafecftef.remoteentities.PafEcfArredondamento" fetch="select">
+            <column name="arredondamento" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pafEcfUnidadeMedida" class="br.com.sinetic.pafecftef.remoteentities.PafEcfUnidadeMedida" fetch="select">
+            <column name="unidade_medida" length="2" not-null="true" />
+        </many-to-one>
+        <property name="codigoProdutoReferencia" type="int">
+            <column name="codigo_produto_referencia" not-null="true" />
+        </property>
+        <property name="quantidade" type="int">
+            <column name="quantidade" not-null="true" />
+        </property>
+        <property name="gtin" type="string">
+            <column name="gtin" length="14" not-null="true" />
+        </property>
+        <set name="preVendaProdutos" inverse="true">
+            <key>
+                <column name="codigo_produto" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

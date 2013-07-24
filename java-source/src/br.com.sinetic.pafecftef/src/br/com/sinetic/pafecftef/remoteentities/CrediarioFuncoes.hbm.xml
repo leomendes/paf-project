@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.CrediarioFuncoes" table="crediario_funcoes"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">crediario_funcoes_codigo_seq</param>
+            </generator>
+        </id>
+        <property name="funcao" type="string">
+            <column name="funcao" length="20" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="40" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="crediarioClientesForFuncaoConjuge" inverse="true">
+            <key>
+                <column name="funcao_conjuge" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="crediarioClientesForFuncao" inverse="true">
+            <key>
+                <column name="funcao" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+    </class>
+</hibernate-mapping>

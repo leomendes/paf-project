@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR03" table="paf_reg_r03"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numeroFabricacao" type="string">
+            <column name="numero_fabricacao" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="int">
+            <column name="numero_usuario" not-null="true" />
+        </property>
+        <property name="crz" type="int">
+            <column name="crz" not-null="true" />
+        </property>
+        <property name="totalizadorParcial" type="string">
+            <column name="totalizador_parcial" length="7" not-null="true" />
+        </property>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="11" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

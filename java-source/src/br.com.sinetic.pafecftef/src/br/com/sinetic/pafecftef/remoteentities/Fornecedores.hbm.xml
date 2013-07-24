@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.Fornecedores" table="fornecedores"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">fornecedores_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="fornecedoresRamosAtividades" class="br.com.sinetic.pafecftef.remoteentities.FornecedoresRamosAtividades" fetch="select">
+            <column name="ramo_atividade" />
+        </many-to-one>
+        <many-to-one name="usuarioByModificadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="modificado_por" />
+        </many-to-one>
+        <many-to-one name="fornecedoresRelacoesComerciais" class="br.com.sinetic.pafecftef.remoteentities.FornecedoresRelacoesComerciais" fetch="select">
+            <column name="relacao_comercial" />
+        </many-to-one>
+        <many-to-one name="usuarioByAdicionadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="adicionado_por" />
+        </many-to-one>
+        <property name="tipoFornecedor" type="string">
+            <column name="tipo_fornecedor" length="2" />
+        </property>
+        <property name="endRua" type="string">
+            <column name="end_rua" length="40" />
+        </property>
+        <property name="endNumero" type="string">
+            <column name="end_numero" length="5" />
+        </property>
+        <property name="endComplemento" type="string">
+            <column name="end_complemento" length="20" />
+        </property>
+        <property name="endCep" type="string">
+            <column name="end_cep" length="9" />
+        </property>
+        <property name="endBairro" type="string">
+            <column name="end_bairro" length="20" />
+        </property>
+        <property name="endCidade" type="string">
+            <column name="end_cidade" length="20" />
+        </property>
+        <property name="endEstado" type="string">
+            <column name="end_estado" length="2" />
+        </property>
+        <property name="observacoes" type="string">
+            <column name="observacoes" length="200" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <property name="acessos" type="java.lang.Short">
+            <column name="acessos" />
+        </property>
+        <property name="adicionadoEm" type="timestamp">
+            <column name="adicionado_em" length="29" />
+        </property>
+        <property name="modificadoEm" type="timestamp">
+            <column name="modificado_em" length="29" />
+        </property>
+        <set name="produtosesForCodFornecedor" inverse="true">
+            <key>
+                <column name="cod_fornecedor" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+        <set name="produtosesForCodFabricante" inverse="true">
+            <key>
+                <column name="cod_fabricante" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+        <set name="produtoMarcas" inverse="true">
+            <key>
+                <column name="fornecedor" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.ProdutoMarca" />
+        </set>
+    </class>
+</hibernate-mapping>

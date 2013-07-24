@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" table="crediario_cliente"  >
+        <id name="codigo" type="long">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="crediarioRamosAtividadeByRamoAtividade" class="br.com.sinetic.pafecftef.remoteentities.CrediarioRamosAtividade" fetch="select">
+            <column name="ramo_atividade" />
+        </many-to-one>
+        <many-to-one name="usuarioByModificadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="modificado_por" />
+        </many-to-one>
+        <many-to-one name="loja" class="br.com.sinetic.pafecftef.remoteentities.Loja" fetch="select">
+            <column name="loja_cadastro" />
+        </many-to-one>
+        <many-to-one name="crediarioSetoresAtividadeBySetorAtividade" class="br.com.sinetic.pafecftef.remoteentities.CrediarioSetoresAtividade" fetch="select">
+            <column name="setor_atividade" />
+        </many-to-one>
+        <many-to-one name="fornecedoresTiposContatoByContato1" class="br.com.sinetic.pafecftef.remoteentities.FornecedoresTiposContato" fetch="select">
+            <column name="contato_1" />
+        </many-to-one>
+        <many-to-one name="crediarioFuncoesByFuncaoConjuge" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFuncoes" fetch="select">
+            <column name="funcao_conjuge" />
+        </many-to-one>
+        <many-to-one name="crediarioCliente" class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" fetch="select">
+            <column name="referencia_gouveia" />
+        </many-to-one>
+        <many-to-one name="crediarioObservacoes" class="br.com.sinetic.pafecftef.remoteentities.CrediarioObservacoes" fetch="select">
+            <column name="observacao" />
+        </many-to-one>
+        <many-to-one name="fornecedoresTiposContatoByContato3" class="br.com.sinetic.pafecftef.remoteentities.FornecedoresTiposContato" fetch="select">
+            <column name="contato_3" />
+        </many-to-one>
+        <many-to-one name="fornecedoresTiposContatoByContato2" class="br.com.sinetic.pafecftef.remoteentities.FornecedoresTiposContato" fetch="select">
+            <column name="contato_2" />
+        </many-to-one>
+        <many-to-one name="usuarioByCadastradoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="cadastrado_por" />
+        </many-to-one>
+        <many-to-one name="crediarioFuncoesByFuncao" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFuncoes" fetch="select">
+            <column name="funcao" />
+        </many-to-one>
+        <many-to-one name="crediarioSetoresAtividadeBySetorAtividadeConjuge" class="br.com.sinetic.pafecftef.remoteentities.CrediarioSetoresAtividade" fetch="select">
+            <column name="setor_atividade_conjuge" />
+        </many-to-one>
+        <many-to-one name="crediarioRamosAtividadeByRamoAtividadeConjuge" class="br.com.sinetic.pafecftef.remoteentities.CrediarioRamosAtividade" fetch="select">
+            <column name="ramo_atividade_conjuge" />
+        </many-to-one>
+        <property name="cadastradoEm" type="timestamp">
+            <column name="cadastrado_em" length="29" />
+        </property>
+        <property name="modificadoEm" type="timestamp">
+            <column name="modificado_em" length="29" />
+        </property>
+        <property name="nome" type="string">
+            <column name="nome" length="51" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="sexo" length="1" />
+        </property>
+        <property name="dtNasc" type="date">
+            <column name="dt_nasc" length="13" />
+        </property>
+        <property name="localNasc" type="string">
+            <column name="local_nasc" length="40" />
+        </property>
+        <property name="estadoNasc" type="string">
+            <column name="estado_nasc" length="2" />
+        </property>
+        <property name="nomePai" type="string">
+            <column name="nome_pai" length="50" />
+        </property>
+        <property name="nomeMae" type="string">
+            <column name="nome_mae" length="50" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="14" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" length="10" />
+        </property>
+        <property name="estExpRg" type="string">
+            <column name="est_exp_rg" length="2" />
+        </property>
+        <property name="documentoDig" type="java.lang.Boolean">
+            <column name="documento_dig" />
+        </property>
+        <property name="endRua" type="string">
+            <column name="end_rua" length="100" />
+        </property>
+        <property name="endNumero" type="java.lang.Short">
+            <column name="end_numero" />
+        </property>
+        <property name="endComplemento" type="string">
+            <column name="end_complemento" length="20" />
+        </property>
+        <property name="bairro" type="string">
+            <column name="bairro" length="72" />
+        </property>
+        <property name="bairroInfluencia" type="java.lang.Short">
+            <column name="bairro_influencia" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="72" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="2" />
+        </property>
+        <property name="cep" type="string">
+            <column name="cep" length="9" />
+        </property>
+        <property name="comprovanteEndereco" type="java.lang.Boolean">
+            <column name="comprovante_endereco" />
+        </property>
+        <property name="responsavelObrigacoesCasa" type="java.lang.Boolean">
+            <column name="responsavel_obrigacoes_casa" />
+        </property>
+        <property name="casaPropria" type="string">
+            <column name="casa_propria" length="2" />
+        </property>
+        <property name="valorAluguel" type="string">
+            <column name="valor_aluguel" length="20" />
+        </property>
+        <property name="resideDesde" type="date">
+            <column name="reside_desde" length="13" />
+        </property>
+        <property name="tempUltAlugAnos" type="java.lang.Short">
+            <column name="temp_ult_alug_anos" />
+        </property>
+        <property name="tempUltAlugMeses" type="java.lang.Short">
+            <column name="temp_ult_alug_meses" />
+        </property>
+        <property name="localTrabalho" type="string">
+            <column name="local_trabalho" length="50" />
+        </property>
+        <property name="enderecoTrabalho" type="string">
+            <column name="endereco_trabalho" length="50" />
+        </property>
+        <property name="rendaPessoal" type="string">
+            <column name="renda_pessoal" length="20" />
+        </property>
+        <property name="dataAdmissao" type="date">
+            <column name="data_admissao" length="13" />
+        </property>
+        <property name="comprovanteRenda" type="java.lang.Boolean">
+            <column name="comprovante_renda" />
+        </property>
+        <property name="filhos" type="java.lang.Boolean">
+            <column name="filhos" />
+        </property>
+        <property name="NFilhosDependentes" type="java.lang.Short">
+            <column name="n_filhos_dependentes" />
+        </property>
+        <property name="estCivil" type="java.lang.Character">
+            <column name="est_civil" length="1" />
+        </property>
+        <property name="nomeConjuge" type="string">
+            <column name="nome_conjuge" length="50" />
+        </property>
+        <property name="dtNascConjuge" type="date">
+            <column name="dt_nasc_conjuge" length="13" />
+        </property>
+        <property name="localTrabalhoConjuge" type="string">
+            <column name="local_trabalho_conjuge" length="50" />
+        </property>
+        <property name="enderecoTrabalhoConjuge" type="string">
+            <column name="endereco_trabalho_conjuge" length="50" />
+        </property>
+        <property name="funcaocCompat" type="string">
+            <column name="funcaoc_compat" length="50" />
+        </property>
+        <property name="rendaConjuge" type="string">
+            <column name="renda_conjuge" length="20" />
+        </property>
+        <property name="dataAdmissaoConjuge" type="date">
+            <column name="data_admissao_conjuge" length="13" />
+        </property>
+        <property name="comprovanteRendaConjuge" type="java.lang.Boolean">
+            <column name="comprovante_renda_conjuge" />
+        </property>
+        <property name="possuiRendaComplementar" type="java.lang.Boolean">
+            <column name="possui_renda_complementar" />
+        </property>
+        <property name="rendaComplementarTipo" type="string">
+            <column name="renda_complementar_tipo" length="25" />
+        </property>
+        <property name="rendaComplementarValor" type="string">
+            <column name="renda_complementar_valor" length="20" />
+        </property>
+        <property name="contato1Valor" type="string">
+            <column name="contato_1_valor" length="50" />
+        </property>
+        <property name="contato1Detalhe" type="string">
+            <column name="contato_1_detalhe" length="50" />
+        </property>
+        <property name="contato2Valor" type="string">
+            <column name="contato_2_valor" length="50" />
+        </property>
+        <property name="contato2Detalhe" type="string">
+            <column name="contato_2_detalhe" length="50" />
+        </property>
+        <property name="contato3Valor" type="string">
+            <column name="contato_3_valor" length="50" />
+        </property>
+        <property name="contato3Detalhe" type="string">
+            <column name="contato_3_detalhe" length="50" />
+        </property>
+        <property name="malaDireta" type="java.lang.Boolean">
+            <column name="mala_direta" />
+        </property>
+        <property name="referencia1" type="string">
+            <column name="referencia_1" length="40" />
+        </property>
+        <property name="endReferencia1" type="string">
+            <column name="end_referencia_1" length="40" />
+        </property>
+        <property name="telReferencia1" type="string">
+            <column name="tel_referencia_1" length="13" />
+        </property>
+        <property name="referencia2" type="string">
+            <column name="referencia_2" length="40" />
+        </property>
+        <property name="endReferencia2" type="string">
+            <column name="end_referencia_2" length="40" />
+        </property>
+        <property name="telReferencia2" type="string">
+            <column name="tel_referencia_2" length="13" />
+        </property>
+        <property name="referenciaComercial1" type="string">
+            <column name="referencia_comercial_1" length="50" />
+        </property>
+        <property name="referenciaComercial2" type="string">
+            <column name="referencia_comercial_2" length="50" />
+        </property>
+        <property name="notas" type="string">
+            <column name="notas" length="400" />
+        </property>
+        <property name="comprometimento" type="java.lang.Short">
+            <column name="comprometimento" />
+        </property>
+        <property name="endTipo" type="string">
+            <column name="end_tipo" length="10" />
+        </property>
+        <property name="regiao" type="java.lang.Character">
+            <column name="regiao" length="1" />
+        </property>
+        <property name="periodoEndAnterior" type="java.lang.Character">
+            <column name="periodo_end_anterior" length="1" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="140" />
+        </property>
+        <property name="consultaSpc" type="string">
+            <column name="consulta_spc" />
+        </property>
+        <property name="geolocalizacao" type="serializable">
+            <column name="geolocalizacao" />
+        </property>
+        <set name="preVendas" inverse="true">
+            <key>
+                <column name="codigo_cliente" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVenda" />
+        </set>
+        <set name="crediarioClientes" inverse="true">
+            <key>
+                <column name="referencia_gouveia" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+    </class>
+</hibernate-mapping>

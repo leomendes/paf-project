@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.Servico" table="servico"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">servico_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="servicoSubtipo" class="br.com.sinetic.pafecftef.remoteentities.ServicoSubtipo" fetch="select">
+            <column name="codigo_servico_subtipo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByCriadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="criado_por" />
+        </many-to-one>
+        <many-to-one name="pafEcfProducao" class="br.com.sinetic.pafecftef.remoteentities.PafEcfProducao" fetch="select">
+            <column name="producao" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pafEcfSituacaoTributaria" class="br.com.sinetic.pafecftef.remoteentities.PafEcfSituacaoTributaria" fetch="select">
+            <column name="situacao_tributaria" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicoTipo" class="br.com.sinetic.pafecftef.remoteentities.ServicoTipo" fetch="select">
+            <column name="codigo_servico_tipo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pafEcfArredondamento" class="br.com.sinetic.pafecftef.remoteentities.PafEcfArredondamento" fetch="select">
+            <column name="arredondamento" length="1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByAlteradoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="alterado_por" />
+        </many-to-one>
+        <many-to-one name="pafEcfUnidadeMedida" class="br.com.sinetic.pafecftef.remoteentities.PafEcfUnidadeMedida" fetch="select">
+            <column name="unidade_medida" length="2" not-null="true" />
+        </many-to-one>
+        <property name="gtin" type="string">
+            <column name="gtin" length="14" not-null="true" unique="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="50" not-null="true" />
+        </property>
+        <property name="valor" type="big_decimal">
+            <column name="valor" precision="8" not-null="true" />
+        </property>
+        <property name="criadoEm" type="timestamp">
+            <column name="criado_em" length="29" not-null="true" />
+        </property>
+        <property name="alteradoEm" type="timestamp">
+            <column name="alterado_em" length="29" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <set name="preVendaServicos" inverse="true">
+            <key>
+                <column name="codigo_servico" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaServico" />
+        </set>
+    </class>
+</hibernate-mapping>

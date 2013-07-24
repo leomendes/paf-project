@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.Usuario" table="usuario"  >
+        <id name="codigo" type="short">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarioByAlteradoMultiploPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="alterado_multiplo_por" />
+        </many-to-one>
+        <many-to-one name="usuarioByCodigo" class="br.com.sinetic.pafecftef.remoteentities.Usuario" update="false" insert="false" fetch="select">
+            <column name="codigo" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="grupoUsuario" class="br.com.sinetic.pafecftef.remoteentities.GrupoUsuario" fetch="select">
+            <column name="grupo" />
+        </many-to-one>
+        <many-to-one name="loja" class="br.com.sinetic.pafecftef.remoteentities.Loja" fetch="select">
+            <column name="loja" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="50" />
+        </property>
+        <property name="apelido" type="string">
+            <column name="apelido" length="30" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="34" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="35" />
+        </property>
+        <property name="criadoEm" type="timestamp">
+            <column name="criado_em" length="29" />
+        </property>
+        <property name="criadoPor" type="java.lang.Short">
+            <column name="criado_por" />
+        </property>
+        <property name="alteradoEm" type="timestamp">
+            <column name="alterado_em" length="29" />
+        </property>
+        <property name="alteradoPor" type="java.lang.Short">
+            <column name="alterado_por" />
+        </property>
+        <property name="ramal" type="java.lang.Short">
+            <column name="ramal" />
+        </property>
+        <property name="dtNascimento" type="date">
+            <column name="dt_nascimento" length="13" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="9" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" length="10" />
+        </property>
+        <property name="rgEstExp" type="string">
+            <column name="rg_est_exp" length="2" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="11" />
+        </property>
+        <property name="nomePai" type="string">
+            <column name="nome_pai" length="50" />
+        </property>
+        <property name="nomeMae" type="string">
+            <column name="nome_mae" length="50" />
+        </property>
+        <property name="nomeConjuge" type="string">
+            <column name="nome_conjuge" length="50" />
+        </property>
+        <property name="estadoCivil" type="string">
+            <column name="estado_civil" length="20" />
+        </property>
+        <property name="NFilhos" type="java.lang.Short">
+            <column name="n_filhos" />
+        </property>
+        <property name="nomeFilho1" type="string">
+            <column name="nome_filho_1" length="30" />
+        </property>
+        <property name="nomeFilho2" type="string">
+            <column name="nome_filho_2" length="30" />
+        </property>
+        <property name="nomeFilho3" type="string">
+            <column name="nome_filho_3" length="30" />
+        </property>
+        <property name="nomeFilho4" type="string">
+            <column name="nome_filho_4" length="30" />
+        </property>
+        <property name="nomeFilho5" type="string">
+            <column name="nome_filho_5" length="30" />
+        </property>
+        <property name="escolaridade" type="string">
+            <column name="escolaridade" length="20" />
+        </property>
+        <property name="escolaridadeNivel" type="string">
+            <column name="escolaridade_nivel" length="20" />
+        </property>
+        <property name="endRua" type="string">
+            <column name="end_rua" length="40" />
+        </property>
+        <property name="endNumero" type="string">
+            <column name="end_numero" length="5" />
+        </property>
+        <property name="endComplemento" type="string">
+            <column name="end_complemento" length="20" />
+        </property>
+        <property name="endBairro" type="string">
+            <column name="end_bairro" length="20" />
+        </property>
+        <property name="endCidade" type="string">
+            <column name="end_cidade" length="20" />
+        </property>
+        <property name="endCep" type="string">
+            <column name="end_cep" length="9" />
+        </property>
+        <property name="endEstado" type="string">
+            <column name="end_estado" length="2" />
+        </property>
+        <property name="telResidencial" type="string">
+            <column name="tel_residencial" length="13" />
+        </property>
+        <property name="telContato" type="string">
+            <column name="tel_contato" length="13" />
+        </property>
+        <property name="nomeContato" type="string">
+            <column name="nome_contato" length="20" />
+        </property>
+        <property name="telCelular" type="string">
+            <column name="tel_celular" length="13" />
+        </property>
+        <property name="alergico" type="java.lang.Boolean">
+            <column name="alergico" />
+        </property>
+        <property name="tipoAlergia" type="string">
+            <column name="tipo_alergia" length="40" />
+        </property>
+        <property name="deveAlterarSenha" type="java.lang.Boolean">
+            <column name="deve_alterar_senha" />
+        </property>
+        <property name="ultimaAlteracaoSenha" type="timestamp">
+            <column name="ultima_alteracao_senha" length="29" />
+        </property>
+        <property name="deveRecadastrar" type="java.lang.Boolean">
+            <column name="deve_recadastrar" />
+        </property>
+        <property name="ultimoRecadastramento" type="timestamp">
+            <column name="ultimo_recadastramento" length="29" />
+        </property>
+        <property name="podeAlterarSenha" type="java.lang.Boolean">
+            <column name="pode_alterar_senha" />
+        </property>
+        <property name="alteradoMultiploEm" type="time">
+            <column name="alterado_multiplo_em" length="15" />
+        </property>
+        <property name="adiarRecadastramento" type="short">
+            <column name="adiar_recadastramento" not-null="true" />
+        </property>
+        <property name="foto" type="string">
+            <column name="foto" />
+        </property>
+        <property name="observacoes" type="string">
+            <column name="observacoes" length="200" />
+        </property>
+        <property name="superAdministrador" type="java.lang.Boolean">
+            <column name="super_administrador" />
+        </property>
+        <set name="usuariosForCodigo" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Usuario" />
+        </set>
+        <set name="servicosForAlteradoPor" inverse="true">
+            <key>
+                <column name="alterado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Servico" />
+        </set>
+        <set name="usuariosForCodigo_1" inverse="true">
+            <key>
+                <column name="codigo" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Usuario" />
+        </set>
+        <set name="usuariosForAlteradoMultiploPor" inverse="true">
+            <key>
+                <column name="alterado_multiplo_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Usuario" />
+        </set>
+        <set name="produtosesForAlteradoPor" inverse="true">
+            <key>
+                <column name="alterado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+        <set name="crediarioClientesForModificadoPor" inverse="true">
+            <key>
+                <column name="modificado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="lojaFormaPagamentos" inverse="true">
+            <key>
+                <column name="criado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.LojaFormaPagamento" />
+        </set>
+        <set name="produtoMarcasForAlteradoPor" inverse="true">
+            <key>
+                <column name="alterado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.ProdutoMarca" />
+        </set>
+        <set name="crediarioClientesForCadastradoPor" inverse="true">
+            <key>
+                <column name="cadastrado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" />
+        </set>
+        <set name="produtoMarcasForCriadoPor" inverse="true">
+            <key>
+                <column name="criado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.ProdutoMarca" />
+        </set>
+        <set name="fornecedoresesForAdicionadoPor" inverse="true">
+            <key>
+                <column name="adicionado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" />
+        </set>
+        <set name="produtosesForCriadoPor" inverse="true">
+            <key>
+                <column name="criado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+        <set name="servicosForCriadoPor" inverse="true">
+            <key>
+                <column name="criado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Servico" />
+        </set>
+        <set name="fornecedoresesForModificadoPor" inverse="true">
+            <key>
+                <column name="modificado_por" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" />
+        </set>
+        <set name="preVendas" inverse="true">
+            <key>
+                <column name="codigo_vendedor" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

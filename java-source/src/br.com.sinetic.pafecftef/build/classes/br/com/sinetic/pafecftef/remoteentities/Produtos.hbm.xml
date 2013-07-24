@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.Produtos" table="produtos"  >
+        <id name="codigo" type="long">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sineticProdutoModelo" class="br.com.sinetic.pafecftef.remoteentities.SineticProdutoModelo" fetch="select">
+            <column name="cod_modelo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByCriadoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="criado_por" />
+        </many-to-one>
+        <many-to-one name="produtoGrupo" class="br.com.sinetic.pafecftef.remoteentities.ProdutoGrupo" fetch="select">
+            <column name="grupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="codigoUniversal" class="br.com.sinetic.pafecftef.remoteentities.CodigoUniversal" update="false" insert="false" fetch="select">
+            <column name="codigo" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="produtoMarca" class="br.com.sinetic.pafecftef.remoteentities.ProdutoMarca" fetch="select">
+            <column name="cod_marca" not-null="true" />
+        </many-to-one>
+        <many-to-one name="fornecedoresByCodFabricante" class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" fetch="select">
+            <column name="cod_fabricante" />
+        </many-to-one>
+        <many-to-one name="fornecedoresByCodFornecedor" class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" fetch="select">
+            <column name="cod_fornecedor" />
+        </many-to-one>
+        <many-to-one name="produtoSubgrupo" class="br.com.sinetic.pafecftef.remoteentities.ProdutoSubgrupo" fetch="select">
+            <column name="subgrupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByAlteradoPor" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="alterado_por" />
+        </many-to-one>
+        <property name="codReferencia" type="long">
+            <column name="cod_referencia" not-null="true" />
+        </property>
+        <property name="codBarras" type="string">
+            <column name="cod_barras" length="50" />
+        </property>
+        <property name="codProdFornecedor" type="string">
+            <column name="cod_prod_fornecedor" length="50" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="20" />
+        </property>
+        <property name="etiqueta1" type="string">
+            <column name="etiqueta1" length="20" />
+        </property>
+        <property name="etiqueta2" type="string">
+            <column name="etiqueta2" length="20" />
+        </property>
+        <property name="etiqueta3" type="string">
+            <column name="etiqueta3" length="20" />
+        </property>
+        <property name="criadoEm" type="timestamp">
+            <column name="criado_em" length="29" />
+        </property>
+        <property name="alteradoEm" type="timestamp">
+            <column name="alterado_em" length="29" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="preVendaProdutoItems" inverse="true">
+            <key>
+                <column name="codigo_item" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProdutoItem" />
+        </set>
+    </class>
+</hibernate-mapping>

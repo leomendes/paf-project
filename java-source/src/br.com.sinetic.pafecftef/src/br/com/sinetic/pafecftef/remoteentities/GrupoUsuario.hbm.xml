@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.GrupoUsuario" table="grupo_usuario"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="sequence">
+                    <param name="sequence">grupo_usuario_id_seq</param>
+            </generator>
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="20" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="40" />
+        </property>
+        <property name="pagina" type="string">
+            <column name="pagina" length="60" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="usuarios" inverse="true">
+            <key>
+                <column name="grupo" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

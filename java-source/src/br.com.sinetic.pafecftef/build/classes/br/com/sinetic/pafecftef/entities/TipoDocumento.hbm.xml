@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:50:03 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.TipoDocumento" table="tipo_documento"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="10" not-null="true" />
+        </property>
+        <set name="pafMeiosPagamentoDias" inverse="true">
+            <key>
+                <column name="id_tipo_documento" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.PafMeiosPagamentoDia" />
+        </set>
+    </class>
+</hibernate-mapping>

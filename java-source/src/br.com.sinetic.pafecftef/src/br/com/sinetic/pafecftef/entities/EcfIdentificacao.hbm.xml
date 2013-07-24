@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.EcfIdentificacao" table="ecf_identificacao">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="laudo" type="string">
+            <column name="laudo" length="100" />
+        </property>
+        <property name="shCnpj" type="string">
+            <column name="sh_cnpj" length="20" />
+        </property>
+        <property name="shRazaoSocial" type="string">
+            <column name="sh_razao_social" length="100" />
+        </property>
+        <property name="shEndereco" type="string">
+            <column name="sh_endereco" length="100" />
+        </property>
+        <property name="shTelefone" type="string">
+            <column name="sh_telefone" length="15" />
+        </property>
+        <property name="shContato" type="string">
+            <column name="sh_contato" length="100" />
+        </property>
+        <property name="pafNomeComercial" type="string">
+            <column name="paf_nome_comercial" length="100" />
+        </property>
+        <property name="pafVersao" type="string">
+            <column name="paf_versao" length="20" />
+        </property>
+        <property name="pafPrincipalExecutavel" type="string">
+            <column name="paf_principal_executavel" length="200" />
+        </property>
+        <property name="pafArqTxtExe" type="string">
+            <column name="paf_arq_txt_exe" length="200" />
+        </property>
+        <property name="pafVersaoEr" type="string">
+            <column name="paf_versao_er" length="20" />
+        </property>
+        <property name="shInscricaoEstadual" type="string">
+            <column name="sh_inscricao_estadual" length="14" />
+        </property>
+        <property name="shInscricaoMunicipal" type="string">
+            <column name="sh_inscricao_municipal" length="14" />
+        </property>
+        <property name="bancoDeDados" type="string">
+            <column name="banco_de_dados" length="30" />
+        </property>
+        <property name="linguagemProgramacao" type="string">
+            <column name="linguagem_programacao" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.ProdutoGrupo" table="produto_grupo"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">produto_grupo_codigo_seq</param>
+            </generator>
+        </id>
+        <property name="grupo" type="string">
+            <column name="grupo" length="25" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="produtoses" inverse="true">
+            <key>
+                <column name="grupo" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Produtos" />
+        </set>
+        <set name="produtoSubgrupos" inverse="true">
+            <key>
+                <column name="grupo" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.ProdutoSubgrupo" />
+        </set>
+    </class>
+</hibernate-mapping>

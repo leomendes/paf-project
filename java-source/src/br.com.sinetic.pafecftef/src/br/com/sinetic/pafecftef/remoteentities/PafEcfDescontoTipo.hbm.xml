@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.PafEcfDescontoTipo" table="paf_ecf_desconto_tipo"  >
+        <id name="sigla" type="char">
+            <column name="sigla" length="1" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="25" not-null="true" />
+        </property>
+        <set name="preVendas" inverse="true">
+            <key>
+                <column name="codigo_desconto_tipo" length="1" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVenda" />
+        </set>
+        <set name="preVendaServicos" inverse="true">
+            <key>
+                <column name="codigo_desconto_tipo" length="1" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaServico" />
+        </set>
+        <set name="preVendaProdutos" inverse="true">
+            <key>
+                <column name="codigo_desconto_tipo" length="1" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProduto" />
+        </set>
+    </class>
+</hibernate-mapping>

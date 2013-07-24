@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.FornecedoresRamosAtividades" table="fornecedores_ramos_atividades"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">fornecedores_tipo_dado_codigo_seq</param>
+            </generator>
+        </id>
+        <property name="ramo" type="string">
+            <column name="ramo" length="50" />
+        </property>
+        <property name="tipoRelacao" type="java.lang.Short">
+            <column name="tipo_relacao" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="fornecedoreses" inverse="true">
+            <key>
+                <column name="ramo_atividade" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.Fornecedores" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.Item" table="item"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="vendas" class="br.com.sinetic.pafecftef.entities.Vendas" fetch="select">
+            <column name="vendas_id" />
+        </many-to-one>
+        <property name="codigo" type="java.lang.Long">
+            <column name="codigo" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="1000" />
+        </property>
+        <property name="aliquota" type="java.lang.Double">
+            <column name="aliquota" precision="17" scale="17" />
+        </property>
+        <property name="tipoQuantidade" type="java.lang.Integer">
+            <column name="tipo_quantidade" />
+        </property>
+        <property name="quantidade" type="java.lang.Double">
+            <column name="quantidade" precision="17" scale="17" />
+        </property>
+        <property name="casasDecimais" type="java.lang.Integer">
+            <column name="casas_decimais" />
+        </property>
+        <property name="preco" type="java.lang.Double">
+            <column name="preco" precision="17" scale="17" />
+        </property>
+        <property name="tipoDesconto" type="java.lang.Integer">
+            <column name="tipo_desconto" />
+        </property>
+        <property name="valorDesconto" type="java.lang.Double">
+            <column name="valor_desconto" precision="17" scale="17" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>

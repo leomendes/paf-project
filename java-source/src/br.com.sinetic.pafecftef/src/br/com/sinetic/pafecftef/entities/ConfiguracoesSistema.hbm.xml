@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.ConfiguracoesSistema" table="configuracoes_sistema" >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="corPadrao" type="int">
+            <column name="cor_padrao" not-null="true" />
+        </property>
+        <property name="mensagemPromocional" type="string">
+            <column name="mensagem_promocional" length="384" />
+        </property>
+        <property name="portaSerial" type="string">
+            <column name="porta_serial" length="5" not-null="true" />
+        </property>
+        <property name="md5" type="string">
+            <column name="md5" length="33" />
+        </property>
+        <property name="grandeTotal" type="string">
+            <column name="grande_total" length="64" />
+        </property>
+        <property name="numeroSerie" type="string">
+            <column name="numero_serie" length="64" />
+        </property>
+        <property name="fkBrLojaId" type="java.lang.Integer">
+            <column name="fk_br_loja_id" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+    <property name="hibernate.connection.url">jdbc:sqlite:paf.db</property>
+    <property name="hibernate.dialect">dialect.SQLiteDialect</property>
+    <property name="connection.username"></property>
+    <property name="connection.password"></property>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfEcfsAutorizados.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfSuprimentos.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/DiaFiscal.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/FechaCaixa.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/AliquotasImpressora.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfExecutaveis.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/ConfiguracoesSistema.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfReducoesz.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/AbreCaixa.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfLeiturasx.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/Item.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfIdentificacao.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfSangrias.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfComprador.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/Vendas.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/EcfRelatoriosGerenciais.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PrevendaAberta.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/VendaPagamento.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafMeiosPagamentoDia.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/TipoDocumento.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR02.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR03.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR05.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR04.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR06.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafRegR07.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/TestDate.hbm.xml"/>
+    <mapping resource="br/com/sinetic/pafecftef/entities/PafProduct.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

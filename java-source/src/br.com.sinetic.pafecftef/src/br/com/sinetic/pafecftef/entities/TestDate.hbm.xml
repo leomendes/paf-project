@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-Mar-2013 10:11:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.TestDate" table="test_date"  >
+          <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+         <property name="dataHora" type="timestamp">
+            <column name="data_hora" not-null="true" />
+        </property>
+        <property name="nDataHora" type="timestamp">
+            <column name="ndata_Hora" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-Mar-2013 14:47:09 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR05" table="paf_reg_r05"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numeroFabricacao" type="string">
+            <column name="numero_fabricacao" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="string">
+            <column name="numero_usuario" length="2" not-null="true" />
+        </property>
+        <property name="coo" type="int">
+            <column name="coo" not-null="true" />
+        </property>
+        <property name="ccfCvcCbp" type="int">
+            <column name="ccf_cvc_cbp" not-null="true" />
+        </property>
+        <property name="numeroItem" type="int">
+            <column name="numero_item" not-null="true" />
+        </property>
+        <property name="codProduto" type="int">
+            <column name="cod_produto" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="100" not-null="true" />
+        </property>
+        <property name="quantidade" type="int">
+            <column name="quantidade" not-null="true" />
+        </property>
+        <property name="unidade" type="string">
+            <column name="unidade" length="3" not-null="true" />
+        </property>
+        <property name="valorUnitario" type="big_decimal">
+            <column name="valor_unitario" precision="6" not-null="true" />
+        </property>
+        <property name="descontoItem" type="big_decimal">
+            <column name="desconto_item" precision="6" not-null="true" />
+        </property>
+        <property name="acrescimoItem" type="big_decimal">
+            <column name="acrescimo_item" precision="6" not-null="true" />
+        </property>
+        <property name="valorTotalLiq" type="big_decimal">
+            <column name="valor_total_liq" precision="12" not-null="true" />
+        </property>
+        <property name="totalizadorParcial" type="string">
+            <column name="totalizador_parcial" length="7" not-null="true" />
+        </property>
+        <property name="indicadorCancelamento" type="char">
+            <column name="indicador_cancelamento" length="1" not-null="true" />
+        </property>
+        <property name="quantidadeCancelada" type="int">
+            <column name="quantidade_cancelada" not-null="true" />
+        </property>
+        <property name="valorCancelado" type="big_decimal">
+            <column name="valor_cancelado" precision="11" not-null="true" />
+        </property>
+        <property name="cancelamentoAcrescimo" type="big_decimal">
+            <column name="cancelamento_acrescimo" precision="11" not-null="true" />
+        </property>
+        <property name="iat" type="char">
+            <column name="iat" length="1" not-null="true" />
+        </property>
+        <property name="ippt" type="char">
+            <column name="ippt" length="1" not-null="true" />
+        </property>
+        <property name="casasQnt" type="int">
+            <column name="casas_qnt" not-null="true" />
+        </property>
+        <property name="casasValor" type="int">
+            <column name="casas_valor" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

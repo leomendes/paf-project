@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.Vendas" table="vendas"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="ecfComprador" class="br.com.sinetic.pafecftef.entities.EcfComprador" fetch="select">
+            <column name="id_ecf_comprador" />
+        </many-to-one>
+        <property name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+        </property>
+        <property name="vendedor" type="string">
+            <column name="vendedor" length="100" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="1000" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="items" inverse="true">
+            <key>
+                <column name="vendas_id" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.Item" />
+        </set>
+    </class>
+</hibernate-mapping>

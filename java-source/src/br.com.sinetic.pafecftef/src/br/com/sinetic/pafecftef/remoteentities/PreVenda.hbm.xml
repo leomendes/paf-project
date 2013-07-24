@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.PreVenda" table="pre_venda"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">pre_venda_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="pafEcfDescontoTipo" class="br.com.sinetic.pafecftef.remoteentities.PafEcfDescontoTipo" fetch="select">
+            <column name="codigo_desconto_tipo" length="1" />
+        </many-to-one>
+        <many-to-one name="crediarioCliente" class="br.com.sinetic.pafecftef.remoteentities.CrediarioCliente" fetch="select">
+            <column name="codigo_cliente" />
+        </many-to-one>
+        <many-to-one name="usuario" class="br.com.sinetic.pafecftef.remoteentities.Usuario" fetch="select">
+            <column name="codigo_vendedor" />
+        </many-to-one>
+        <many-to-one name="loja" class="br.com.sinetic.pafecftef.remoteentities.Loja" fetch="select">
+            <column name="codigo_loja" not-null="true" />
+        </many-to-one>
+        <property name="criadoEm" type="timestamp">
+            <column name="criado_em" length="29" not-null="true" />
+        </property>
+        <property name="finalizadoEm" type="timestamp">
+            <column name="finalizado_em" length="29" />
+        </property>
+        <property name="valorInicial" type="big_decimal">
+            <column name="valor_inicial" precision="8" not-null="true" />
+        </property>
+        <property name="descontoValor" type="big_decimal">
+            <column name="desconto_valor" precision="131089" scale="0" not-null="true" />
+        </property>
+        <property name="valorFinal" type="big_decimal">
+            <column name="valor_final" precision="8" not-null="true" />
+        </property>
+        <property name="finalizada" type="boolean">
+            <column name="finalizada" not-null="true" />
+        </property>
+        <property name="emProgresso" type="boolean">
+            <column name="em_progresso" not-null="true" />
+        </property>
+        <property name="cancelada" type="boolean">
+            <column name="cancelada" not-null="true" />
+        </property>
+        <property name="codigoEcfFinalizador" type="string">
+            <column name="codigo_ecf_finalizador" length="128" />
+        </property>
+        <property name="numeroNota" type="java.lang.Integer">
+            <column name="numero_nota" />
+        </property>
+        <property name="codigoMovimentacao" type="java.lang.Integer">
+            <column name="codigo_movimentacao" />
+        </property>
+        <property name="observacaoLivre" type="string">
+            <column name="observacao_livre" length="256" />
+        </property>
+        <property name="preVenda" type="boolean">
+            <column name="pre_venda" not-null="true" />
+        </property>
+        <set name="preVendaProdutoItems" inverse="true">
+            <key>
+                <column name="codigo_pre_venda" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProdutoItem" />
+        </set>
+        <set name="preVendaProdutos" inverse="true">
+            <key>
+                <column name="codigo_pre_venda" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProduto" />
+        </set>
+        <set name="crediarioVendaPagamentos" inverse="true">
+            <key>
+                <column name="codigo_pre_venda" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioVendaPagamento" />
+        </set>
+        <set name="preVendaServicos" inverse="true">
+            <key>
+                <column name="codigo_pre_venda" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaServico" />
+        </set>
+        <set name="crediarioVendaParcelamentos" inverse="true">
+            <key>
+                <column name="codigo_venda" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioVendaParcelamento" />
+        </set>
+    </class>
+</hibernate-mapping>

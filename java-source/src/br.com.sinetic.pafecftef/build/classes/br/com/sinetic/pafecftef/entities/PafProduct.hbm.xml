@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+     <class name="br.com.sinetic.pafecftef.entities.PafProduct" table="paf_product"  >
+        <id name="gtin" type="string">
+            <column name="gtin" />
+        </id>
+        <property name="descricao" type="string">
+            <column name="descricao" length="150" />
+        </property>
+        <property name="valor" type="java.lang.Double">
+            <column name="valor" precision="17" scale="17" />
+        </property>
+        <property name="unidadeMedida" type="string">
+            <column name="unidade_medida" length="10" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="1" />
+        </property>
+         <property name="hash" type="string">
+            <column name="hash" />
+        </property>
+     </class>
+</hibernate-mapping>

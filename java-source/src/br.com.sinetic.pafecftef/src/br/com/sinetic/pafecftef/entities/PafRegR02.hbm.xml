@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR02" table="paf_reg_r02"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numFabricacao" type="string">
+            <column name="num_fabricacao" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="int">
+            <column name="numero_usuario" not-null="true" />
+        </property>
+        <property name="crz" type="int">
+            <column name="crz" not-null="true" />
+        </property>
+        <property name="coo" type="int">
+            <column name="coo" not-null="true" />
+        </property>
+        <property name="cro" type="int">
+            <column name="cro" not-null="true" />
+        </property>
+        <property name="dataMovimento" type="timestamp">
+            <column name="data_movimento" length="29" not-null="true" />
+        </property>
+        <property name="dataEmissao" type="timestamp">
+            <column name="data_emissao" length="29" not-null="true" />
+        </property>
+        <property name="vendaBrutaDiaria" type="big_decimal">
+            <column name="venda_bruta_diaria" precision="12" not-null="true" />
+        </property>
+        <property name="parametroDesconto" type="char">
+            <column name="parametro_desconto" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.CrediarioVendaParcelamento" table="crediario_venda_parcelamento"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">crediario_venda_parcelamento_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="crediarioTiposStatusPrestacao" class="br.com.sinetic.pafecftef.remoteentities.CrediarioTiposStatusPrestacao" fetch="select">
+            <column name="status_prestacao" not-null="true" />
+        </many-to-one>
+        <many-to-one name="crediarioFormaPagamentoDetalhado" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFormaPagamentoDetalhado" fetch="select">
+            <column name="cod_forma_pagamento_detalhado" />
+        </many-to-one>
+        <many-to-one name="preVenda" class="br.com.sinetic.pafecftef.remoteentities.PreVenda" fetch="select">
+            <column name="codigo_venda" not-null="true" />
+        </many-to-one>
+        <property name="parcelaValor" type="big_decimal">
+            <column name="parcela_valor" precision="8" not-null="true" />
+        </property>
+        <property name="parcelaData" type="date">
+            <column name="parcela_data" length="13" not-null="true" />
+        </property>
+        <property name="recebimentoValor" type="big_decimal">
+            <column name="recebimento_valor" precision="8" />
+        </property>
+        <property name="recebimentoData" type="date">
+            <column name="recebimento_data" length="13" />
+        </property>
+        <property name="jurosAoDia" type="big_decimal">
+            <column name="juros_ao_dia" precision="8" not-null="true" />
+        </property>
+        <property name="descontoAoDia" type="big_decimal">
+            <column name="desconto_ao_dia" precision="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

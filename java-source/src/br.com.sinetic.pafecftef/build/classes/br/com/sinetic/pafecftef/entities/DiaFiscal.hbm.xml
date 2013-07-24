@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.DiaFiscal" table="dia_fiscal" >
+        <id name="id" type="int">
+            <column name="id" />
+             <generator class="increment"></generator>
+        </id>
+        <many-to-one name="fechaCaixa" class="br.com.sinetic.pafecftef.entities.FechaCaixa" fetch="select">
+            <column name="id_fecha_caixa" />
+        </many-to-one>
+        <many-to-one name="abreCaixa" class="br.com.sinetic.pafecftef.entities.AbreCaixa" fetch="select">
+            <column name="id_abre_caixa" />
+        </many-to-one>
+        <property name="dataHora" type="timestamp">
+            <column name="data_hora" not-null="true" />
+        </property>
+        <set name="ecfReducoeszs" inverse="true">
+            <key>
+                <column name="id_fk_dia_fiscal" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.EcfReducoesz" />
+        </set>
+        <set name="ecfSuprimentoses" inverse="true">
+            <key>
+                <column name="id_dia_fiscal" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.EcfSuprimentos" />
+        </set>
+        <set name="ecfSangriases" inverse="true">
+            <key>
+                <column name="id_dia_fiscal" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.entities.EcfSangrias" />
+        </set>
+    </class>
+</hibernate-mapping>

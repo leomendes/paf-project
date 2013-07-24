@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ecf-tef" match- />
+  <table-filter match-name="dia_fiscal"/>
+  <table-filter match-name="ecf_comprador"/>
+  <table-filter match-name="ecf_leiturasx"/>
+  <table-filter match-name="ecf_suprimentos"/>
+  <table-filter match-name="configuracoes_sistema"/>
+  <table-filter match-name="abre_caixa"/>
+  <table-filter match-name="fecha_caixa"/>
+  <table-filter match-name="ecf_reducoesz"/>
+  <table-filter match-name="ecf_executaveis"/>
+  <table-filter match-name="vendas"/>
+  <table-filter match-name="item"/>
+  <table-filter match-name="aliquotas_impressora"/>
+  <table-filter match-name="ecf_ecfs_autorizados"/>
+  <table-filter match-name="ecf_sangrias"/>
+  <table-filter match-name="ecf_identificacao"/>
+  <table-filter match-name="ecf_relatorios_gerenciais"/>
+  <table-filter match-name="prevenda_aberta"/>
+  <table-filter match-name="venda_pagamento"/>
+  <table-filter match-name="paf_meios_pagamento_dia"/>
+  <table-filter match-name="tipo_documento"/>
+  <table-filter match-name="paf_reg_r02"/>
+  <table-filter match-name="paf_reg_r03"/>
+  <table-filter match-name="paf_reg_r05"/>
+</hibernate-reverse-engineering>

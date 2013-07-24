@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.PreVendaProduto" table="pre_venda_produto"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">pre_venda_produto_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="pafEcfDescontoTipo" class="br.com.sinetic.pafecftef.remoteentities.PafEcfDescontoTipo" fetch="select">
+            <column name="codigo_desconto_tipo" length="1" />
+        </many-to-one>
+        <many-to-one name="preVenda" class="br.com.sinetic.pafecftef.remoteentities.PreVenda" fetch="select">
+            <column name="codigo_pre_venda" />
+        </many-to-one>
+        <many-to-one name="sineticControleEstoque" class="br.com.sinetic.pafecftef.remoteentities.SineticControleEstoque" fetch="select">
+            <column name="codigo_produto" />
+        </many-to-one>
+        <property name="quantidade" type="int">
+            <column name="quantidade" not-null="true" />
+        </property>
+        <property name="valorInicial" type="big_decimal">
+            <column name="valor_inicial" precision="8" not-null="true" />
+        </property>
+        <property name="descontoValor" type="big_decimal">
+            <column name="desconto_valor" precision="131089" scale="0" not-null="true" />
+        </property>
+        <property name="valorFinal" type="big_decimal">
+            <column name="valor_final" precision="8" not-null="true" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <set name="preVendaProdutoItems" inverse="true">
+            <key>
+                <column name="codigo_pre_venda_produto" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.PreVendaProdutoItem" />
+        </set>
+    </class>
+</hibernate-mapping>

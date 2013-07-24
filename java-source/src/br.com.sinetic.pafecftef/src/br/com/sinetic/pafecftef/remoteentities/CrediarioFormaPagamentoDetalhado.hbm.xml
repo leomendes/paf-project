@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-Mar-2013 18:04:06 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.remoteentities.CrediarioFormaPagamentoDetalhado" table="crediario_forma_pagamento_detalhado"  >
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="sequence">
+                    <param name="sequence">crediario_forma_pagamento_detalhado_codigo_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="crediarioFormaPagamentoBandeira" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFormaPagamentoBandeira" fetch="select">
+            <column name="cod_bandeira" />
+        </many-to-one>
+        <many-to-one name="crediarioFormaPagamento" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFormaPagamento" fetch="select">
+            <column name="cod_forma_pagamento" not-null="true" />
+        </many-to-one>
+        <many-to-one name="crediarioFormaPagamentoOperadora" class="br.com.sinetic.pafecftef.remoteentities.CrediarioFormaPagamentoOperadora" fetch="select">
+            <column name="cod_operadora" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="100" not-null="true" />
+        </property>
+        <property name="numeroMaximoParcelas" type="java.lang.Short">
+            <column name="numero_maximo_parcelas" />
+        </property>
+        <property name="clienteDescontoAm" type="java.lang.Float">
+            <column name="cliente_desconto_am" precision="8" scale="8" />
+        </property>
+        <property name="clienteJurosAm" type="java.lang.Float">
+            <column name="cliente_juros_am" precision="8" scale="8" />
+        </property>
+        <property name="banco" type="string">
+            <column name="banco" length="50" />
+        </property>
+        <property name="bancoAgencia" type="string">
+            <column name="banco_agencia" length="25" />
+        </property>
+        <property name="bancoContaCorrente" type="string">
+            <column name="banco_conta_corrente" length="25" />
+        </property>
+        <property name="taxaAdministracao" type="big_decimal">
+            <column name="taxa_administracao" precision="5" />
+        </property>
+        <property name="taxaAdministracaoTipo" type="java.lang.Character">
+            <column name="taxa_administracao_tipo" length="1" />
+        </property>
+        <property name="preferencia" type="java.lang.Short">
+            <column name="preferencia" />
+        </property>
+        <property name="prazoRecebimento" type="java.lang.Short">
+            <column name="prazo_recebimento" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="tefApi" type="string">
+            <column name="tef_api" />
+        </property>
+        <set name="crediarioVendaPagamentos" inverse="true">
+            <key>
+                <column name="cod_forma_pagamento_detalhado" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioVendaPagamento" />
+        </set>
+        <set name="crediarioVendaParcelamentos" inverse="true">
+            <key>
+                <column name="cod_forma_pagamento_detalhado" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.CrediarioVendaParcelamento" />
+        </set>
+        <set name="lojaFormaPagamentos" inverse="true">
+            <key>
+                <column name="cod_forma_pagamento_detalhado" not-null="true" />
+            </key>
+            <one-to-many class="br.com.sinetic.pafecftef.remoteentities.LojaFormaPagamento" />
+        </set>
+    </class>
+</hibernate-mapping>

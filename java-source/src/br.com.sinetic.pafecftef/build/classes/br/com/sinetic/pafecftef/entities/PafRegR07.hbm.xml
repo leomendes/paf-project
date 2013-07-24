@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-Mar-2013 10:11:54 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.PafRegR07" table="paf_reg_r07"  >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="numeroFabricacao" type="string">
+            <column name="numero_fabricacao" length="20" not-null="true" />
+        </property>
+        <property name="mfAdicional" type="char">
+            <column name="mf_adicional" length="1" not-null="true" />
+        </property>
+        <property name="modeloEcf" type="string">
+            <column name="modelo_ecf" length="20" not-null="true" />
+        </property>
+        <property name="numeroUsuario" type="int">
+            <column name="numero_usuario" not-null="true" />
+        </property>
+        <property name="coo" type="int">
+            <column name="coo" not-null="true" />
+        </property>
+        <property name="ccf" type="int">
+            <column name="ccf" not-null="true" />
+        </property>
+        <property name="gnf" type="int">
+            <column name="gnf" not-null="true" />
+        </property>
+        <property name="fkCfpdBrMeioPagamento" type="int">
+            <column name="fk_cfpd_br_meio_pagamento" not-null="true" />
+        </property>
+        <property name="valorPago" type="big_decimal">
+            <column name="valor_pago" precision="11" not-null="true" />
+        </property>
+        <property name="indicadorEstorno" type="char">
+            <column name="indicador_estorno" length="1" not-null="true" />
+        </property>
+        <property name="valorEstornado" type="big_decimal">
+            <column name="valor_estornado" precision="11" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

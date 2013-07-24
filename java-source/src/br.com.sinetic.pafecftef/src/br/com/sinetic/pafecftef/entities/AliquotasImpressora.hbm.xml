@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-Mar-2013 18:19:08 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="br.com.sinetic.pafecftef.entities.AliquotasImpressora" table="aliquotas_impressora" >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="aliquota" type="java.lang.Double">
+            <column name="aliquota" precision="17" scale="17" />
+        </property>
+        <property name="iss" type="boolean">
+            <column name="iss" not-null="true" />
+        </property>
+        <property name="icms" type="boolean">
+            <column name="icms" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
