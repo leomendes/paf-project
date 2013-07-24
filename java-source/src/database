@@ -1,0 +1,470 @@
+BEGIN TRANSACTION;
+CREATE TABLE abre_caixa (
+	id integer PRIMARY KEY NOT NULL,
+    data_hora timestamp without time zone NOT NULL
+);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:22:06.343',1);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:22:32.005',2);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:35:49.287',3);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:36:16.806',4);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:36:32.328',5);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:38:30.344',6);
+INSERT INTO abre_caixa VALUES('2013-01-11 16:40:07.264',7);
+INSERT INTO abre_caixa VALUES('2013-01-25 16:22:34.102',8);
+INSERT INTO abre_caixa VALUES('2013-01-25 17:09:02.535',9);
+INSERT INTO abre_caixa VALUES('2013-01-25 17:09:22.956',10);
+INSERT INTO abre_caixa VALUES('2013-02-16 15:52:20.257',15);
+INSERT INTO abre_caixa VALUES('2013-02-16 21:58:56.248',16);
+INSERT INTO abre_caixa VALUES('2013-02-27 17:44:20.529',17);
+INSERT INTO abre_caixa VALUES('2013-02-27 17:51:47.568',18);
+INSERT INTO abre_caixa VALUES('2013-02-27 17:59:39.423',19);
+INSERT INTO abre_caixa VALUES('2013-02-28 11:07:57.131',20);
+INSERT INTO abre_caixa VALUES('2013-03-01 12:04:17.631',21);
+INSERT INTO abre_caixa VALUES('2013-03-02 21:03:17.259',22);
+INSERT INTO abre_caixa VALUES('2013-03-03 19:31:58.512',23);
+INSERT INTO abre_caixa VALUES('2013-03-04 09:10:58.022',24);
+INSERT INTO abre_caixa VALUES('2013-03-05 10:46:23.822',25);
+INSERT INTO abre_caixa VALUES('2013-03-07 11:31:12.1',26);
+INSERT INTO abre_caixa VALUES('2013-03-08 16:22:50.207',27);
+INSERT INTO abre_caixa VALUES('2013-03-09 23:31:13.328',28);
+INSERT INTO abre_caixa VALUES('2013-03-10 00:01:53.367',29);
+INSERT INTO abre_caixa VALUES('2013-03-13 10:58:02.428',30);
+INSERT INTO abre_caixa VALUES('2013-03-15 06:53:20.97',31);
+INSERT INTO abre_caixa VALUES('2013-04-08 19:16:22.084',32);
+CREATE TABLE aliquotas_impressora (
+    id INTEGER PRIMARY KEY NOT NULL,
+    aliquota double precision NOT NULL,
+    iss boolean DEFAULT false NOT NULL,
+    icms boolean DEFAULT true NOT NULL
+);
+INSERT INTO aliquotas_impressora VALUES(12,5.0,'false','true');
+CREATE TABLE configuracoes_sistema (
+    id INTEGER PRIMARY KEY NOT NULL,
+    cor_padrao integer DEFAULT 15790320 NOT NULL,
+    mensagem_promocional character(384),
+    porta_serial character(5) NOT NULL,
+    md5 character(33),
+    grande_total character(64),
+    numero_serie character(64),
+    fk_br_loja_id integer
+);
+INSERT INTO configuracoes_sistema VALUES(1,15790320,'Esta ‚ uma mensagem promocional em banco de dados!','COM3','059076e13ef43cbaa3cee876f9e1419e',000000000000000000,'EMULADOR',105);
+CREATE TABLE dia_fiscal (
+    id INTEGER PRIMARY KEY NOT NULL,
+    id_abre_caixa integer,
+    id_fecha_caixa integer,
+    data_hora timestamp without time zone NOT NULL
+);
+INSERT INTO dia_fiscal VALUES(5,16,7,'2013-02-16 15:52:20.257');
+INSERT INTO dia_fiscal VALUES(7,15,8,'2013-02-16 15:52:20.257');
+INSERT INTO dia_fiscal VALUES(8,10,13,'2013-02-17 08:52:20.257');
+INSERT INTO dia_fiscal VALUES(11,19,14,'2013-02-27 17:59:30.126');
+INSERT INTO dia_fiscal VALUES(12,20,15,'2013-02-28 11:07:13.638');
+INSERT INTO dia_fiscal VALUES(13,21,16,'2013-03-01 12:04:07.164');
+INSERT INTO dia_fiscal VALUES(14,22,17,'2013-03-02 21:03:12.204');
+INSERT INTO dia_fiscal VALUES(15,23,18,'2013-03-03 19:31:48.278');
+INSERT INTO dia_fiscal VALUES(16,24,19,'2013-03-04 09:10:46.774');
+INSERT INTO dia_fiscal VALUES(17,25,20,'2013-03-05 10:45:40.438');
+INSERT INTO dia_fiscal VALUES(18,26,21,'2013-03-07 11:31:04.612');
+INSERT INTO dia_fiscal VALUES(19,27,22,'2013-03-08 16:22:46.994');
+INSERT INTO dia_fiscal VALUES(20,28,23,'2013-03-09 23:31:10.473');
+INSERT INTO dia_fiscal VALUES(21,29,24,'2013-03-10 00:01:45.021');
+INSERT INTO dia_fiscal VALUES(22,30,25,'2013-03-13 10:57:58.965');
+INSERT INTO dia_fiscal VALUES(23,31,26,'2013-03-15 06:53:14.039');
+INSERT INTO dia_fiscal VALUES(24,32,NULL,'2013-04-08 19:16:18.574');
+CREATE TABLE ecf_comprador (
+    id INTEGER PRIMARY KEY NOT NULL,
+    cpf_cnpj character(29) NOT NULL,
+    nome character(30),
+    endereco character(80)
+);
+INSERT INTO ecf_comprador VALUES(1,'394.398.293-03','Jos‚ Jorge','Rua Alamedas');
+INSERT INTO ecf_comprador VALUES(2,'394.398.293-03','Xyz','Zuk');
+INSERT INTO ecf_comprador VALUES(3,'345.654.234-09','Chico','Rua Julius');
+INSERT INTO ecf_comprador VALUES(4,048515,'Laerte','Rua xyz');
+INSERT INTO ecf_comprador VALUES(5,'','Consumidor','Rua xyz');
+INSERT INTO ecf_comprador VALUES(6,'','Consumidor','Rua xyz');
+INSERT INTO ecf_comprador VALUES(7,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(8,'528.939.109-63','Abigair Alves Ribeiro','Rua Ant“nio Amadeu, 206, Londrina, PR');
+INSERT INTO ecf_comprador VALUES(9,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(10,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(11,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(12,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(13,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(14,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(15,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(16,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(17,'456.134.949-91','Abel Rodrigues Almeida','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+INSERT INTO ecf_comprador VALUES(18,123456789,'Jos‚ Neto','rua pernanbuco, 523, sao sebastiao da moreira, PR');
+CREATE TABLE ecf_ecfs_autorizados (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fab character(50) NOT NULL
+);
+CREATE TABLE ecf_executaveis (
+    id INTEGER PRIMARY KEY NOT NULL,
+    nome character(100) NOT NULL,
+    path character(200) NOT NULL,
+    md5 character(32) NOT NULL
+);
+SysWOW64
+INSERT INTO ecf_executaveis VALUES(1,'sign_bemaMD5.dll','C:\\\\Windows\\\\System32\\\\','1fbbfbf2bec44924b44d9b29274dd3d1');
+INSERT INTO ecf_executaveis VALUES(2,'BemaFI32.dll','C:\\\\Windows\\\\System32\\\\','48620c6783ad8709ec98b10191d00b1b');
+INSERT INTO ecf_executaveis VALUES(3,'libeay32MD5.dll','C:\\\\Windows\\\\System32\\\\','5ebc00732af3f1f6df661c083e33043e');
+INSERT INTO ecf_executaveis VALUES(4,'br.com.sinetic.pafecftef.jar','F:\\\\Sinetic\\\\Paf\\\\\ecf-tef-paf\\\\java-source\\\\src\\\\br.com.sinetic.pafecftef\\\\dist\\\\','d8f36bf2d8038f78bf1e75908cbfc321');
+CREATE TABLE ecf_identificacao (
+    laudo character(100),
+    id INTEGER PRIMARY KEY NOT NULL,
+    sh_cnpj character(20),
+    sh_razao_social character(100),
+    sh_endereco character(100),
+    sh_telefone character(15),
+    sh_contato character(100),
+    paf_nome_comercial character(100),
+    paf_versao character(20),
+    paf_principal_executavel character(200),
+    paf_arq_txt_exe character(200),
+    paf_versao_er character(20),
+    sh_inscricao_estadual character(14),
+    sh_inscricao_municipal character(14),
+    banco_de_dados character(30),
+    linguagem_programacao character(20)
+);
+insert into ecf_identificacao (laudo, id, sh_cnpj, sh_razao_social, sh_endereco, sh_telefone, sh_contato, paf_nome_comercial, paf_versao, paf_principal_executavel, paf_arq_txt_exe, paf_versao_er, sh_inscricao_estadual, sh_inscricao_municipal, banco_de_dados, linguagem_programacao) values(null,1,'14633096000130','PRESTES E LUIZAO LTDA - ME','Rua Alagoas, 792, Conj. 701. Londrina-PR CEP 86010-520','(43) 3037-3880','Laerte Holak Zaccarelli','PAF-ECF LOJAS GOUVEIA','?','br.com.sinetic.pafecftef.jar','ArqMD5.txt','?','ISENTO','1894390','PostgreSQL','Java SE');
+CREATE TABLE ecf_leiturasx (
+    id INTEGER PRIMARY KEY NOT NULL,
+    data_hora timestamp without time zone NOT NULL
+);
+INSERT INTO ecf_leiturasx VALUES(1,'2013-02-16 15:15:49');
+INSERT INTO ecf_leiturasx VALUES(2,'2013-02-16 15:15:49');
+INSERT INTO ecf_leiturasx VALUES(3,'2013-02-16 15:35:58');
+INSERT INTO ecf_leiturasx VALUES(4,'2013-02-16 15:38:54');
+INSERT INTO ecf_leiturasx VALUES(5,'2013-02-16 15:40:48');
+INSERT INTO ecf_leiturasx VALUES(6,'2013-02-16 15:48:08');
+INSERT INTO ecf_leiturasx VALUES(7,'2013-02-16 15:50:57');
+INSERT INTO ecf_leiturasx VALUES(8,'2013-02-16 15:52:20');
+INSERT INTO ecf_leiturasx VALUES(10,'2013-02-16 21:58:54');
+INSERT INTO ecf_leiturasx VALUES(11,'2013-02-27 17:32:05');
+INSERT INTO ecf_leiturasx VALUES(12,'2013-02-27 17:38:04');
+INSERT INTO ecf_leiturasx VALUES(13,'2013-02-27 17:43:57');
+INSERT INTO ecf_leiturasx VALUES(14,'2013-02-27 17:51:38');
+INSERT INTO ecf_leiturasx VALUES(15,'2013-02-27 17:59:38');
+INSERT INTO ecf_leiturasx VALUES(16,'2013-02-28 11:07:34');
+INSERT INTO ecf_leiturasx VALUES(17,'2013-03-01 12:04:16');
+INSERT INTO ecf_leiturasx VALUES(18,'2013-03-02 21:03:16');
+INSERT INTO ecf_leiturasx VALUES(19,'2013-03-03 19:31:58');
+INSERT INTO ecf_leiturasx VALUES(20,'2013-03-04 09:10:57');
+INSERT INTO ecf_leiturasx VALUES(21,'2013-03-05 10:45:52');
+INSERT INTO ecf_leiturasx VALUES(22,'2013-03-07 11:31:11');
+INSERT INTO ecf_leiturasx VALUES(23,'2013-03-08 16:22:49');
+INSERT INTO ecf_leiturasx VALUES(24,'2013-03-09 23:31:11');
+INSERT INTO ecf_leiturasx VALUES(25,'2013-03-10 00:01:50');
+INSERT INTO ecf_leiturasx VALUES(26,'2013-03-10 00:02:34');
+INSERT INTO ecf_leiturasx VALUES(27,'2013-03-13 10:58:00');
+INSERT INTO ecf_leiturasx VALUES(28,'2013-03-13 10:58:15');
+INSERT INTO ecf_leiturasx VALUES(29,'2013-03-15 06:53:20');
+INSERT INTO ecf_leiturasx VALUES(30,'2013-03-15 07:09:44');
+INSERT INTO ecf_leiturasx VALUES(31,'2013-03-15 09:46:43');
+INSERT INTO ecf_leiturasx VALUES(32,'2013-03-15 13:27:46');
+INSERT INTO ecf_leiturasx VALUES(33,'2013-03-15 11:42:05');
+INSERT INTO ecf_leiturasx VALUES(34,'2013-03-15 11:46:08');
+INSERT INTO ecf_leiturasx VALUES(35,'2013-04-08 19:16:20');
+CREATE TABLE ecf_reducoesz (
+    id INTEGER PRIMARY KEY NOT NULL,
+    data_hora timestamp without time zone NOT NULL,
+    id_fk_dia_fiscal integer NOT NULL
+);
+INSERT INTO ecf_reducoesz VALUES(1,'2013-02-16 20:41:12',5);
+INSERT INTO ecf_reducoesz VALUES(2,'2013-02-16 20:50:04',5);
+INSERT INTO ecf_reducoesz VALUES(3,'2013-02-16 21:04:03',5);
+INSERT INTO ecf_reducoesz VALUES(4,'2013-02-16 21:05:30',5);
+INSERT INTO ecf_reducoesz VALUES(5,'2013-02-16 21:59:34',5);
+INSERT INTO ecf_reducoesz VALUES(6,'2013-02-17 13:23:48',7);
+INSERT INTO ecf_reducoesz VALUES(7,'2013-02-27 15:11:40',8);
+INSERT INTO ecf_reducoesz VALUES(8,'2013-02-27 15:11:40',8);
+INSERT INTO ecf_reducoesz VALUES(9,'2013-02-27 15:21:31',8);
+INSERT INTO ecf_reducoesz VALUES(10,'2013-02-27 15:21:31',8);
+INSERT INTO ecf_reducoesz VALUES(11,'2013-02-27 15:21:31',8);
+INSERT INTO ecf_reducoesz VALUES(12,'2013-02-28 09:32:00',11);
+INSERT INTO ecf_reducoesz VALUES(13,'2013-03-01 09:30:53',12);
+INSERT INTO ecf_reducoesz VALUES(14,'2013-03-02 15:51:57',13);
+INSERT INTO ecf_reducoesz VALUES(15,'2013-03-03 15:34:49',14);
+INSERT INTO ecf_reducoesz VALUES(16,'2013-03-04 09:04:00',15);
+INSERT INTO ecf_reducoesz VALUES(17,'2013-03-08 16:22:11',18);
+INSERT INTO ecf_reducoesz VALUES(18,'2013-03-09 23:27:59',19);
+INSERT INTO ecf_reducoesz VALUES(19,'2013-03-10 00:01:07',20);
+INSERT INTO ecf_reducoesz VALUES(20,'2013-03-13 10:56:23',21);
+INSERT INTO ecf_reducoesz VALUES(21,'2013-03-14 11:21:35',22);
+INSERT INTO ecf_reducoesz VALUES(22,'2013-04-08 19:12:46',23);
+CREATE TABLE ecf_relatorios_gerenciais (
+    id INTEGER PRIMARY KEY NOT NULL,
+    tipo integer NOT NULL,
+    indice_gerencial character(2) NOT NULL
+);
+INSERT INTO ecf_relatorios_gerenciais VALUES(1,1,02);
+CREATE TABLE ecf_sangrias (
+    id INTEGER PRIMARY KEY NOT NULL,
+    valor double precision NOT NULL,
+    data_hora timestamp without time zone NOT NULL,
+    id_dia_fiscal integer NOT NULL
+);
+INSERT INTO ecf_sangrias VALUES(11,20.0,'2013-02-16 20:28:56.995',5);
+INSERT INTO ecf_sangrias VALUES(12,20.0,'2013-02-16 20:31:21.328',5);
+INSERT INTO ecf_sangrias VALUES(13,20.0,'2013-02-16 20:41:07.458',5);
+INSERT INTO ecf_sangrias VALUES(14,20.0,'2013-02-16 20:49:59.143',5);
+INSERT INTO ecf_sangrias VALUES(15,20.0,'2013-02-16 21:03:58.291',5);
+INSERT INTO ecf_sangrias VALUES(16,20.0,'2013-02-16 21:05:26.151',5);
+INSERT INTO ecf_sangrias VALUES(17,15.0,'2013-02-16 21:59:10.771',5);
+INSERT INTO ecf_sangrias VALUES(18,50.0,'2013-02-16 21:59:27.947',5);
+INSERT INTO ecf_sangrias VALUES(19,30.0,'2013-03-15 11:17:20.605',23);
+INSERT INTO ecf_sangrias VALUES(20,10.0,'2013-03-15 11:42:12.755',23);
+INSERT INTO ecf_sangrias VALUES(21,10.0,'2013-03-15 11:43:06.813',23);
+INSERT INTO ecf_sangrias VALUES(22,10.0,'2013-03-15 11:49:47.666',23);
+CREATE TABLE ecf_suprimentos (
+    id INTEGER PRIMARY KEY NOT NULL,
+    valor double precision NOT NULL,
+    data_hora timestamp without time zone NOT NULL,
+    id_dia_fiscal integer NOT NULL
+);
+INSERT INTO ecf_suprimentos VALUES(12,10.0,'2013-02-16 15:52:54.39',5);
+INSERT INTO ecf_suprimentos VALUES(13,20.0,'2013-02-16 15:56:25.085',5);
+INSERT INTO ecf_suprimentos VALUES(14,15.0,'2013-02-16 16:06:49.311',5);
+INSERT INTO ecf_suprimentos VALUES(15,10.0,'2013-02-16 16:22:36.541',5);
+INSERT INTO ecf_suprimentos VALUES(16,10.0,'2013-02-16 16:25:30.842',5);
+INSERT INTO ecf_suprimentos VALUES(17,20.0,'2013-02-16 16:25:41.465',5);
+INSERT INTO ecf_suprimentos VALUES(18,20.0,'2013-02-16 16:42:00.322',5);
+INSERT INTO ecf_suprimentos VALUES(19,30.0,'2013-02-16 16:42:06.172',5);
+INSERT INTO ecf_suprimentos VALUES(20,10.0,'2013-02-16 20:12:35.876',5);
+INSERT INTO ecf_suprimentos VALUES(21,15.0,'2013-02-16 21:58:56.216',5);
+INSERT INTO ecf_suprimentos VALUES(22,100.0,'2013-02-16 21:59:20.724',5);
+INSERT INTO ecf_suprimentos VALUES(23,20.0,'2013-02-27 18:08:42.154',11);
+INSERT INTO ecf_suprimentos VALUES(24,20.0,'2013-03-01 12:04:17.881',13);
+INSERT INTO ecf_suprimentos VALUES(25,10.0,'2013-03-02 21:03:17.72',14);
+INSERT INTO ecf_suprimentos VALUES(26,10.0,'2013-03-03 19:31:58.621',15);
+INSERT INTO ecf_suprimentos VALUES(27,10.0,'2013-03-04 09:10:58.459',16);
+INSERT INTO ecf_suprimentos VALUES(28,20.0,'2013-03-07 11:31:12.366',18);
+INSERT INTO ecf_suprimentos VALUES(29,20.0,'2013-03-08 16:22:50.316',19);
+INSERT INTO ecf_suprimentos VALUES(30,10.0,'2013-03-10 00:02:45.16',21);
+INSERT INTO ecf_suprimentos VALUES(31,10.0,'2013-03-13 10:58:02.616',22);
+INSERT INTO ecf_suprimentos VALUES(32,20.0,'2013-03-15 06:53:21.582',23);
+INSERT INTO ecf_suprimentos VALUES(33,20.0,'2013-03-15 11:17:08.837',23);
+INSERT INTO ecf_suprimentos VALUES(34,10.0,'2013-04-08 19:16:22.208',24);
+CREATE TABLE fecha_caixa (
+    id INTEGER PRIMARY KEY NOT NULL,
+    data_hora timestamp without time zone NOT NULL
+);
+INSERT INTO fecha_caixa VALUES(1,'2013-01-11 16:23:18.993');
+INSERT INTO fecha_caixa VALUES(2,'2013-01-11 16:23:47.822');
+INSERT INTO fecha_caixa VALUES(3,'2013-01-11 16:35:03.781');
+INSERT INTO fecha_caixa VALUES(4,'2013-02-16 20:50:18.331');
+INSERT INTO fecha_caixa VALUES(5,'2013-02-16 21:04:19.368');
+INSERT INTO fecha_caixa VALUES(6,'2013-02-16 21:05:49.022');
+INSERT INTO fecha_caixa VALUES(7,'2013-02-16 21:59:53.719');
+INSERT INTO fecha_caixa VALUES(8,'2013-02-17 13:24:08.675');
+INSERT INTO fecha_caixa VALUES(9,'2013-02-27 15:13:23.787');
+INSERT INTO fecha_caixa VALUES(10,'2013-02-27 15:20:19.781');
+INSERT INTO fecha_caixa VALUES(11,'2013-02-27 15:31:45.721');
+INSERT INTO fecha_caixa VALUES(12,'2013-02-27 15:55:29.049');
+INSERT INTO fecha_caixa VALUES(13,'2013-02-27 16:00:17.231');
+INSERT INTO fecha_caixa VALUES(14,'2013-02-28 10:11:38.618');
+INSERT INTO fecha_caixa VALUES(15,'2013-03-01 09:32:28.85');
+INSERT INTO fecha_caixa VALUES(16,'2013-03-02 17:53:05.939');
+INSERT INTO fecha_caixa VALUES(17,'2013-03-03 18:57:37.805');
+INSERT INTO fecha_caixa VALUES(18,'2013-03-04 09:04:14.281');
+INSERT INTO fecha_caixa VALUES(19,'2013-03-05 09:04:14.281');
+INSERT INTO fecha_caixa VALUES(20,'2013-03-06 09:04:14.281');
+INSERT INTO fecha_caixa VALUES(21,'2013-03-08 16:22:25.824');
+INSERT INTO fecha_caixa VALUES(22,'2013-03-09 23:28:15.798');
+INSERT INTO fecha_caixa VALUES(23,'2013-03-10 00:01:27.627');
+INSERT INTO fecha_caixa VALUES(24,'2013-03-13 10:56:41.885');
+INSERT INTO fecha_caixa VALUES(25,'2013-03-14 19:36:49.727');
+INSERT INTO fecha_caixa VALUES(26,'2013-04-08 19:14:16.034');
+CREATE TABLE item (
+    id INTEGER PRIMARY KEY NOT NULL,
+    codigo bigint,
+    descricao character varying(1000),
+    aliquota double precision,
+    tipo_quantidade integer,
+    quantidade double precision,
+    casas_decimais integer,
+    preco double precision,
+    tipo_desconto integer,
+    valor_desconto double precision,
+    vendas_id integer,
+    status integer
+);
+INSERT INTO item VALUES(6,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,3,0);
+INSERT INTO item VALUES(7,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,3,0);
+INSERT INTO item VALUES(8,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,4,0);
+INSERT INTO item VALUES(9,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,4,0);
+INSERT INTO item VALUES(10,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,5,0);
+INSERT INTO item VALUES(11,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,5,0);
+INSERT INTO item VALUES(12,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,6,0);
+INSERT INTO item VALUES(13,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,6,0);
+INSERT INTO item VALUES(14,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,7,0);
+INSERT INTO item VALUES(15,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,7,0);
+INSERT INTO item VALUES(16,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,8,0);
+INSERT INTO item VALUES(17,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,8,0);
+INSERT INTO item VALUES(18,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,9,0);
+INSERT INTO item VALUES(19,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,9,0);
+INSERT INTO item VALUES(20,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,10,0);
+INSERT INTO item VALUES(21,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,10,0);
+INSERT INTO item VALUES(22,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,11,0);
+INSERT INTO item VALUES(23,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,11,0);
+INSERT INTO item VALUES(24,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,12,0);
+INSERT INTO item VALUES(25,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,12,0);
+INSERT INTO item VALUES(26,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,13,0);
+INSERT INTO item VALUES(27,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,13,0);
+INSERT INTO item VALUES(28,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,14,0);
+INSERT INTO item VALUES(29,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,14,0);
+INSERT INTO item VALUES(30,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,15,0);
+INSERT INTO item VALUES(31,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,15,0);
+INSERT INTO item VALUES(32,124,'Lente x',5.0,2,2.0,2,10.5,2,1.0,16,0);
+INSERT INTO item VALUES(33,123,'àculos',5.0,2,1.0,2,50.0,2,0.0,16,0);
+CREATE TABLE paf_meios_pagamento_dia (
+    id INTEGER PRIMARY KEY NOT NULL,
+    valor numeric(8,2) NOT NULL,
+    datahora time without time zone NOT NULL,
+    fk_br_codigo_pag_detalhado integer NOT NULL,
+    id_tipo_documento integer NOT NULL
+);
+CREATE TABLE paf_reg_r02 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    num_fabricacao character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario integer NOT NULL,
+    crz integer NOT NULL,
+    coo integer NOT NULL,
+    cro integer NOT NULL,
+    data_movimento timestamp without time zone NOT NULL,
+    data_emissao timestamp without time zone NOT NULL,
+    venda_bruta_diaria numeric(12,2) NOT NULL,
+    parametro_desconto character(1) NOT NULL
+);
+CREATE TABLE paf_reg_r03 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fabricacao character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario integer NOT NULL,
+    crz integer NOT NULL,
+    totalizador_parcial character(7) NOT NULL,
+    valor numeric(11,2) NOT NULL
+);
+CREATE TABLE paf_reg_r04 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fab_ecf character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario character(2) NOT NULL,
+    ccf_cvc_cbp integer NOT NULL,
+    coo integer NOT NULL,
+    data_inicio timestamp without time zone NOT NULL,
+    subtotal double precision NOT NULL,
+    desconto_subtotal double precision NOT NULL,
+    tipo_desconto_subtotal character(1) NOT NULL,
+    acrescimo_subtotal double precision NOT NULL,
+    tipo_acrescimo_subtotal character(1) NOT NULL,
+    total_liquido double precision NOT NULL,
+    indicador_cancelamento boolean NOT NULL,
+    cancelamento_acrescimo_subtotal double precision NOT NULL,
+    ordem_aplicacao_desc_acresc character(1) NOT NULL,
+    nome_cliente character(40) NOT NULL,
+    cpf_cnpj character(14) NOT NULL
+);
+CREATE TABLE paf_reg_r05 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fabricacao character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario character(2) NOT NULL,
+    coo integer NOT NULL,
+    ccf_cvc_cbp integer NOT NULL,
+    numero_item integer NOT NULL,
+    cod_produto integer NOT NULL,
+    descricao character(100) NOT NULL,
+    quantidade integer NOT NULL,
+    unidade character(3) NOT NULL,
+    valor_unitario numeric(6,2) NOT NULL,
+    desconto_item numeric(6,2) NOT NULL,
+    acrescimo_item numeric(6,2) NOT NULL,
+    valor_total_liq numeric(12,2) NOT NULL,
+    totalizador_parcial character(7) NOT NULL,
+    indicador_cancelamento character(1) NOT NULL,
+    quantidade_cancelada integer NOT NULL,
+    valor_cancelado numeric(11,2) NOT NULL,
+    cancelamento_acrescimo numeric(11,2) NOT NULL,
+    iat character(1) NOT NULL,
+    ippt character(1) NOT NULL,
+    casas_qnt integer NOT NULL,
+    casas_valor integer NOT NULL
+);
+CREATE TABLE paf_reg_r06 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fabricacao character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario integer NOT NULL,
+    coo integer NOT NULL,
+    gnf integer NOT NULL,
+    grg integer NOT NULL,
+    cdc integer NOT NULL,
+    denominacao character(2) NOT NULL,
+    data_hora timestamp without time zone NOT NULL
+);
+CREATE TABLE paf_reg_r07 (
+    id INTEGER PRIMARY KEY NOT NULL,
+    numero_fabricacao character(20) NOT NULL,
+    mf_adicional character(1) NOT NULL,
+    modelo_ecf character(20) NOT NULL,
+    numero_usuario integer NOT NULL,
+    coo integer NOT NULL,
+    ccf integer NOT NULL,
+    gnf integer NOT NULL,
+    valor_pago numeric(11,2) NOT NULL,
+    indicador_estorno character(1) NOT NULL,
+    valor_estornado numeric(11,2) NOT NULL,
+    fk_cfpd_br_meio_pagamento integer NOT NULL
+);
+CREATE TABLE prevenda_aberta (
+    id INTEGER PRIMARY KEY NOT NULL,
+    fk_br_prevenda_id integer NOT NULL,
+    status integer NOT NULL
+);
+CREATE TABLE tipo_documento (
+    id INTEGER PRIMARY KEY NOT NULL,
+    nome character(10) NOT NULL
+);
+INSERT INTO tipo_documento VALUES(1,'CUPOMFISCA');
+INSERT INTO tipo_documento VALUES(2,'CPNAOFISC');
+INSERT INTO tipo_documento VALUES(3,'NOTAFISCAL');
+CREATE TABLE venda_pagamento (
+    id INTEGER PRIMARY KEY NOT NULL,
+    fk_br_codigo_pre_venda integer NOT NULL,
+    valor numeric(8,2) NOT NULL,
+    status boolean DEFAULT true NOT NULL,
+    fk_br_codigo_pag_detalhado integer NOT NULL
+);
+CREATE TABLE vendas (
+    id INTEGER PRIMARY KEY NOT NULL,
+    codigo integer,
+    vendedor character varying(100),
+    descricao character varying(1000),
+    status integer,
+    id_ecf_comprador integer
+);
+INSERT INTO vendas VALUES(3,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(4,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(5,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(6,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(7,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(8,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(9,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(10,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(11,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(12,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(13,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(14,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(15,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+INSERT INTO vendas VALUES(16,153234,'Vendedor 1','Lente x àculos x',0,NULL);
+COMMIT;
